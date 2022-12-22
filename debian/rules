@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=tz
+
+%:
+	dh $@ --buildsystem=pybuild
+
+override_dh_auto_clean:
+	rm -rf pytz/zoneinfo
+
+override_dh_auto_configure:
+	ln -s /usr/share/zoneinfo pytz/zoneinfo
+	dh_auto_configure
+
+override_dh_auto_install:
+	dh_auto_install
+	# Use system zoneinfo dir
+	rm -fr debian/python*-tz/usr/lib/*/dist-packages/pytz/zoneinfo
+
+override_dh_auto_test:
+	dh_auto_test -- --before-test="\
+		cp $(CURDIR)/README.rst {build_dir}; \
+		cp -r $(CURDIR)/pytz/tests {build_dir}/pytz/" \
+		--after-test="rm -rf {build_dir}/README.rst {build_dir}/pytz/tests"
