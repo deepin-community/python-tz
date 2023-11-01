@@ -1,3 +1,123 @@
+python-tz (2023.3.post1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Thu, 21 Sep 2023 11:28:43 +0100
+
+python-tz (2023.3-4) unstable; urgency=medium
+
+  * Team upload.
+  * test: Replace legacy US/Eastern by America/New_York to avoid tzdata-legacy
+  * Depend on tzdata-legacy for regression autopkgtest
+
+ -- Benjamin Drung <bdrung@debian.org>  Thu, 10 Aug 2023 14:24:44 +0200
+
+python-tz (2023.3-3) unstable; urgency=medium
+
+  * Team upload.
+  * Fix Dynamically-determine-list-of-available-and-common-timezo.patch:
+    _read_timezones_from_zone_tab() and _extra_common_timezones_set should
+    be distinct.
+  * Retore change from 2022.7.1-4: Update test_all_timezones_count for
+    tzdata 2023c-4, which removed Asia/Hanoi again.
+
+ -- Benjamin Drung <bdrung@debian.org>  Fri, 23 Jun 2023 22:10:59 +0200
+
+python-tz (2023.3-2) unstable; urgency=medium
+
+  * Push to unstable
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Sun, 11 Jun 2023 11:15:15 +0100
+
+python-tz (2023.3-1) experimental; urgency=medium
+
+  * New upstream release
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Fri, 02 Jun 2023 10:42:37 +0100
+
+python-tz (2023.2-1) experimental; urgency=medium
+
+  * New upstream release
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Wed, 29 Mar 2023 17:17:47 +0100
+
+python-tz (2022.7.1-3) unstable; urgency=medium
+
+  * Team upload.
+  * Fix testVersion to not complain about the now dynamic Olson version
+
+ -- Benjamin Drung <bdrung@debian.org>  Mon, 27 Mar 2023 17:17:53 +0200
+
+python-tz (2022.7.1-2) unstable; urgency=medium
+
+  * Team upload.
+  * Dynamically determine list of available and common timezones (LP: #207604)
+  * Determine IANA (nee Olson) database version dynamically
+  * Add autopkgtests to run unittest and own regression tests
+  * Update homepage URL
+  * Bump Standards-Version to 4.6.2
+
+ -- Benjamin Drung <bdrung@debian.org>  Tue, 21 Mar 2023 11:21:11 +0100
+
+python-tz (2022.7.1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Sun, 15 Jan 2023 10:24:50 +0000
+
+python-tz (2022.7-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Thu, 22 Dec 2022 09:53:51 +0000
+
+python-tz (2022.6-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Fri, 04 Nov 2022 11:03:02 +0000
+
+python-tz (2022.5-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Sun, 23 Oct 2022 15:41:45 +0100
+
+python-tz (2022.4-2) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+  * Strip unusual field spacing from debian/control.
+  * Use secure copyright file specification URI.
+
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Sat, 22 Oct 2022 12:26:52 +0100
+
+python-tz (2022.4-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Thu, 06 Oct 2022 09:48:05 +0100
+
+python-tz (2022.2.1-1) unstable; urgency=medium
+
+  * New upstream release. Closes: #1017193
+  * Standards-Version: 4.6.1
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Mon, 15 Aug 2022 16:12:44 +0100
+
+python-tz (2022.1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Thu, 24 Mar 2022 09:41:27 +0000
+
+python-tz (2021.3-2) UNRELEASED; urgency=medium
+
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on tzdata.
+
+ -- Debian Janitor <janitor@jelmer.uk>  Thu, 24 Mar 2022 15:51:01 -0000
+
 python-tz (2021.3-1) unstable; urgency=medium
 
   * New upstream release
@@ -48,7 +168,7 @@ python-tz (2019.3-2) unstable; urgency=medium
 
   * debian/control
     - update Vcs-* fields to point to DPMT salsa repo
-  * Dont run unittests for python2 binary, to reduce pytest rdeps 
+  * Dont run unittests for python2 binary, to reduce pytest rdeps
 
  -- Sandro Tosi <morph@debian.org>  Mon, 13 Apr 2020 22:37:17 -0400
 
@@ -105,7 +225,7 @@ python-tz (2018.5-1) unstable; urgency=medium
 python-tz (2018.3-2) unstable; urgency=medium
 
   * Typo in patch breaks zoneinf path. Closes: #890479
-  
+
  -- Alastair McKinstry <mckinstry@debian.org>  Thu, 15 Feb 2018 07:15:04 +0000
 
 python-tz (2018.3-1) unstable; urgency=medium
@@ -115,7 +235,7 @@ python-tz (2018.3-1) unstable; urgency=medium
   * Remove Brian Sutherland from Uploaders List. Thanks Brian fro all your
     work!. Closes: #869441
   * Closing old bug report not reproducible. Closes: #585875
-  * Don't ship zoneinfo files as we use the system versions.  Drop 
+  * Don't ship zoneinfo files as we use the system versions.  Drop
     incorrect Exclusion note in d/copyright. Closes: #884079
 
  -- Alastair McKinstry <mckinstry@debian.org>  Wed, 14 Feb 2018 13:38:48 +0000
@@ -132,7 +252,7 @@ python-tz (2017.2-1) experimental; urgency=medium
   * New upstream release. Closes: #859096
   * Move to DH_COMPAT=10
   * Acknowledge previous NMUs. Closes: #845495.:wq
-  
+
  -- Alastair McKinstry <mckinstry@debian.org>  Mon, 10 Apr 2017 11:21:28 +0100
 
 python-tz (2016.7-0.3) unstable; urgency=medium
