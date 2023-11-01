@@ -16,6 +16,14 @@ Almost all of the Olson timezones are supported.
 
 .. note::
 
+    Projects using Python 3.9 or later should be using the support
+    now included as part of the standard library, and third party
+    packages work with it such as `tzdata <https://pypi.org/project/tzdata/>`_.
+    pytz offers no advantages beyond backwards compatibility with
+    code written for earlier versions of Python.
+
+.. note::
+
     This library differs from the documented Python API for
     tzinfo implementations; if you want to create local wallclock
     times you need to use the ``localize()`` method documented in this
@@ -91,7 +99,7 @@ Unfortunately using the tzinfo argument of the standard datetime
 constructors ''does not work'' with pytz for many timezones.
 
 >>> datetime(2002, 10, 27, 12, 0, 0, tzinfo=amsterdam).strftime(fmt)  # /!\ Does not work this way!
-'2002-10-27 12:00:00 LMT+0020'
+'2002-10-27 12:00:00 LMT+0018'
 
 It is safe for timezones without daylight saving transitions though, such
 as UTC:
@@ -140,7 +148,7 @@ section for more details)
 Converting between timezones is more easily done, using the
 standard astimezone method.
 
->>> utc_dt = utc.localize(datetime.utcfromtimestamp(1143408899))
+>>> utc_dt = datetime.fromtimestamp(1143408899, tz=utc)
 >>> utc_dt.strftime(fmt)
 '2006-03-26 21:34:59 UTC+0000'
 >>> au_tz = timezone('Australia/Sydney')
@@ -158,7 +166,7 @@ conversions. ``normalize()`` and ``localize()`` are not really
 necessary when there are no daylight saving time transitions to
 deal with.
 
->>> utc_dt = datetime.utcfromtimestamp(1143408899).replace(tzinfo=utc)
+>>> utc_dt = datetime.fromtimestamp(1143408899, tz=utc)
 >>> utc_dt.strftime(fmt)
 '2006-03-26 21:34:59 UTC+0000'
 >>> au_tz = timezone('Australia/Sydney')
@@ -519,9 +527,10 @@ Internationalization - i18n/l10n
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Pytz is an interface to the IANA database, which uses ASCII names. The `Unicode  Consortium's Unicode Locales (CLDR) <http://cldr.unicode.org>`_
-project provides translations. Thomas Khyn's
-`l18n <https://pypi.org/project/l18n/>`_ package can be used to access
-these translations from Python.
+project provides translations. Python packages such as
+`Babel <https://babel.pocoo.org/en/latest/api/dates.html#timezone-functionality>`_
+and Thomas Khyn's `l18n <https://pypi.org/project/l18n/>`_ package can be used
+to access these translations from Python.
 
 
 License
@@ -542,12 +551,10 @@ Latest Versions
 This package will be updated after releases of the Olson timezone
 database.  The latest version can be downloaded from the `Python Package
 Index <https://pypi.org/project/pytz/>`_.  The code that is used
-to generate this distribution is hosted on launchpad.net and available
+to generate this distribution is hosted on Github and available
 using git::
 
-    git clone https://git.launchpad.net/pytz
-
-A mirror on github is also available at https://github.com/stub42/pytz
+    git clone https://github.com/stub42/pytz.git
 
 Announcements of new releases are made on
 `Launchpad <https://launchpad.net/pytz>`_, and the
@@ -558,7 +565,9 @@ hosted there.
 Bugs, Feature Requests & Patches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Bugs can be reported using `Launchpad Bugs <https://bugs.launchpad.net/pytz>`_.
+Bugs should be reported on `Github <https://github.com/stub42/pytz/issues>`_.
+Feature requests are unlikely to be considered, and efforts instead directed
+to timezone support now built into Python or packages that work with it.
 
 
 Security Issues
@@ -570,9 +579,13 @@ Reports about security issues can be made via `Tidelift <https://tidelift.com/se
 Issues & Limitations
 ~~~~~~~~~~~~~~~~~~~~
 
+- This project is in maintenance mode. Projects using Python 3.9 or later
+  are best served by using the timezone functionaly now included in core
+  Python and packages that work with it such as `tzdata <https://pypi.org/project/tzdata/>`_.
+
 - Offsets from UTC are rounded to the nearest whole minute, so timezones
   such as Europe/Amsterdam pre 1937 will be up to 30 seconds out. This
-  is a limitation of the Python datetime library.
+  was a limitation of the Python datetime library.
 
 - If you think a timezone definition is incorrect, I probably can't fix
   it. pytz is a direct translation of the Olson timezone database, and
@@ -585,12 +598,10 @@ Further Reading
 ~~~~~~~~~~~~~~~
 
 More info than you want to know about timezones:
-http://www.twinsun.com/tz/tz-link.htm
+https://data.iana.org/time-zones/tz-link.html
 
 
 Contact
 ~~~~~~~
 
 Stuart Bishop <stuart@stuartbishop.net>
-
-
