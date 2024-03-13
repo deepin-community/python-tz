@@ -33,7 +33,7 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
  
  from pytz.exceptions import AmbiguousTimeError
  from pytz.exceptions import InvalidTimeError
-@@ -203,7 +205,7 @@
+@@ -202,7 +204,7 @@
      """case-insensitively matching timezone, else return zone unchanged"""
      global _all_timezones_lower_to_standard
      if _all_timezones_lower_to_standard is None:
@@ -42,7 +42,7 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
      return _all_timezones_lower_to_standard.get(zone.lower()) or zone  # noqa
  
  
-@@ -512,922 +514,90 @@
+@@ -511,922 +513,90 @@
      import pytz
      return doctest.testmod(pytz)
  
@@ -976,7 +976,7 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
   'Canada/Atlantic',
   'Canada/Central',
   'Canada/Eastern',
-@@ -1435,111 +605,40 @@
+@@ -1434,111 +604,40 @@
   'Canada/Newfoundland',
   'Canada/Pacific',
   'Europe/Amsterdam',
@@ -1088,7 +1088,7 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
   'Pacific/Wake',
   'Pacific/Wallis',
   'US/Alaska',
-@@ -1549,8 +648,10 @@
+@@ -1548,8 +647,10 @@
   'US/Hawaii',
   'US/Mountain',
   'US/Pacific',

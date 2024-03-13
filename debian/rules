@@ -3,7 +3,7 @@
 export PYBUILD_NAME=tz
 
 %:
-	dh $@ --buildsystem=pybuild
+	dh $@ --buildsystem=pybuild --builddir=debian/build
 
 override_dh_auto_clean:
 	rm -rf pytz/zoneinfo

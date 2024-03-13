@@ -1,3 +1,28 @@
+python-tz (2024.1-2) unstable; urgency=medium
+
+  * Team upload.
+  * Restore patch to determine IANA database version dynamically
+
+ -- Benjamin Drung <bdrung@debian.org>  Thu, 22 Feb 2024 16:18:38 +0100
+
+python-tz (2024.1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Mon, 05 Feb 2024 07:13:11 +0000
+
+python-tz (2023.4-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Thu, 01 Feb 2024 08:30:43 +0000
+
+python-tz (2023.3.post1-2) unstable; urgency=medium
+
+  * Treat regex match string as raw. Closes: #1056538, #1056246
+
+ -- Alastair McKinstry <mckinstry@debian.org>  Sun, 10 Dec 2023 08:14:00 +0000
+
 python-tz (2023.3.post1-1) unstable; urgency=medium
 
   * New upstream release
