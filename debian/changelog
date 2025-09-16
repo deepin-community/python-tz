@@ -1,8 +1,19 @@
-python-tz (2025.2-1deepin1) unstable; urgency=medium
+python-tz (2025.2-3) unstable; urgency=medium
 
-  * python3.13 -> python3.12
+  * Team upload.
+  * Do not ship /usr/lib/python3/dist-packages/README.rst
 
- -- Tianyu Chen <sweetyfish@deepin.org>  Tue, 08 Apr 2025 15:04:02 +0800
+  [ William Desportes ]
+  * Remove Fabio from Uploaders
+
+ -- Alexandre Detiste <tchet@debian.org>  Sun, 18 May 2025 20:33:30 +0200
+
+python-tz (2025.2-2) unstable; urgency=medium
+
+  * Team upload.
+  * Fix autopkgtests to account for code moving to src/ (closes: #1103581).
+
+ -- Colin Watson <cjwatson@debian.org>  Tue, 22 Apr 2025 17:53:33 +0100
 
 python-tz (2025.2-1) unstable; urgency=medium
 
