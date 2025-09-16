@@ -11,9 +11,11 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
  pytz/tests/test_tzinfo.py | 28 ++++++++++++++--------------
  1 file changed, 14 insertions(+), 14 deletions(-)
 
---- a/pytz/tests/test_tzinfo.py
-+++ b/pytz/tests/test_tzinfo.py
-@@ -90,7 +90,7 @@
+Index: python-tz-2025.1/pytz/tests/test_tzinfo.py
+===================================================================
+--- python-tz-2025.1.orig/pytz/tests/test_tzinfo.py
++++ python-tz-2025.1/pytz/tests/test_tzinfo.py
+@@ -90,7 +90,7 @@ class BasicTest(unittest.TestCase):
          # This tzinfo behavior is required to make
          # datetime.time.{utcoffset, dst, tzname} work as documented.
  
@@ -22,7 +24,7 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
  
          # This information is not known when we don't have a date,
          # so return None per API.
-@@ -98,7 +98,7 @@
+@@ -98,7 +98,7 @@ class BasicTest(unittest.TestCase):
          self.assertIsNone(dst_tz.dst(None))
          # We don't know the abbreviation, but this is still a valid
          # tzname per the Python documentation.
@@ -31,7 +33,7 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
  
      def clearCache(self):
          pytz._tzinfo_cache.clear()
-@@ -108,12 +108,12 @@
+@@ -108,12 +108,12 @@ class BasicTest(unittest.TestCase):
          # and traditional strings, and that the desired singleton is
          # returned.
          self.clearCache()
@@ -48,7 +50,7 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
  
      def testStaticTzInfo(self):
          # Ensure that static timezones are correctly detected,
-@@ -196,11 +196,11 @@
+@@ -196,11 +196,11 @@ class PicklingTest(unittest.TestCase):
          # where created with pytz2006j
          east1 = pickle.loads(
              _byte_string(
@@ -62,7 +64,7 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
              datetime(2006, 1, 1)).tzinfo
          self.assertIs(east1, east2)
  
-@@ -220,7 +220,7 @@
+@@ -220,7 +220,7 @@ class PicklingTest(unittest.TestCase):
  
  
  class USEasternDSTStartTestCase(unittest.TestCase):
@@ -71,7 +73,7 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
  
      # 24 hours before DST changeover
      transition_time = datetime(2002, 4, 7, 7, 0, 0, tzinfo=UTC)
-@@ -346,7 +346,7 @@
+@@ -346,7 +346,7 @@ class USEasternDSTStartTestCase(unittest
  
  
  class USEasternDSTEndTestCase(USEasternDSTStartTestCase):
@@ -80,7 +82,7 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
      transition_time = datetime(2002, 10, 27, 6, 0, 0, tzinfo=UTC)
      before = {
          'tzname': 'EDT',
-@@ -604,7 +604,7 @@
+@@ -604,7 +604,7 @@ class ReferenceUSEasternDSTEndTestCase(U
  
  class LocalTestCase(unittest.TestCase):
      def testLocalize(self):
@@ -89,7 +91,7 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
  
          # End of DST ambiguity check
          loc_time = loc_tz.localize(datetime(1918, 10, 27, 1, 59, 59), is_dst=1)
-@@ -663,7 +663,7 @@
+@@ -663,7 +663,7 @@ class LocalTestCase(unittest.TestCase):
                  self.assertEqual(loc_time.strftime(fmt), expected[not dst])
  
      def testNormalize(self):
@@ -98,7 +100,7 @@ Signed-off-by: Benjamin Drung <benjamin.drung@canonical.com>
          dt = datetime(2004, 4, 4, 7, 0, 0, tzinfo=UTC).astimezone(tz)
          dt2 = dt - timedelta(minutes=10)
          self.assertEqual(
-@@ -699,8 +699,8 @@
+@@ -699,8 +699,8 @@ class CommonTimezonesTestCase(unittest.T
          self.assertIn('Europe/Bratislava', pytz.common_timezones_set)
  
      def test_us_eastern(self):
